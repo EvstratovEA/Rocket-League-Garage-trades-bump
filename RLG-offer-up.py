@@ -10,18 +10,18 @@ opts.headless = True
 assert opts.headless
 
 browser = Firefox(options = opts)
-browser.get("https://rocket-league.com/trades/%insert nickname%")
+browser.get("https://rocket-league.com/trades/" + input('Insert your nickname: ')
 time.sleep(2)
 browser.find_element_by_id("acceptPrivacyPolicy").click()
 login = browser.find_element_by_id("header-email")
 login.clear()
-login.send_keys("%insert login%")
+login.send_keys(input('Insert your login: ')
 
 time.sleep(1)
 
 password = browser.find_element_by_id("header-password")
 password.clear()
-password.send_keys("%insert password%")
+password.send_keys(input('Insert your password: '))
 
 browser.find_element_by_class_name("rlg-btn-primary").click()
 
