@@ -1,6 +1,6 @@
 from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.options import Options
-import undetected_chromedriver as uc
+import undetected_chromedriver as uc # for try to bypass Cloudflare
 from random import randint
 import time
 
@@ -11,8 +11,11 @@ assert opts.headless
 
 browser = Firefox(options = opts)
 browser.get("https://rocket-league.com/trades/" + input('Insert your nickname: '))
+
 time.sleep(2)
+
 browser.find_element_by_id("acceptPrivacyPolicy").click()
+
 login = browser.find_element_by_id("header-email")
 login.clear()
 login.send_keys(input('Insert your login: '))
